@@ -1,0 +1,114 @@
+.clan-header-image{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+
+    -webkit-mask-image: linear-gradient(to bottom, #000000 60%, rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, #000000 60%, rgba(0, 0, 0, 0));
+}
+
+.clan-header-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.clan-about-container{
+    margin: 30px;
+}
+.clan-about-container > h1{
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+.clan-about-container > p{
+    color: white;
+}
+
+.clan-map{
+    margin-top: 30px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.clan-map > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.clan-map p {
+    font-weight: bold;
+    text-align: center;
+    color: grey;
+}
+.local-clan-p{
+    color: #737373;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+
+.explore-section{
+    margin: 30px 50px 10px 50px;
+}
+.explore-bhc{
+    text-align: center;
+    color: #FF9800;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+@media only screen and (max-width: 480px) {
+    .explore-bhc{
+        font-size: 30px;
+    }
+}
+
+
+.explore-card-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    gap: 30px;
+}
+
+.explore-card{
+    margin-top: 20px;
+    border-radius: 3.5%;
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    text-decoration: none;
+}
+.explore-card-image-container {
+    border-radius: 3%;
+    margin: 5px 5px 2px 5px;
+    height: 210px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+.explore-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.explore-card-image:hover {
+    transform: scale(1.2);
+}
+.explore-card-text-container{
+    text-align: center;
+}
+.explore-card-text{
+    color: #B80000;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.explore-card-text:hover{
+    color: #FF9800;
+}

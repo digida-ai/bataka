@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* BHC Map styles */
+.bhc-map {
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+}
+
+.bhc-map-heading {
+    text-align: center;
+    color: #b1560f;
+    margin-bottom: 10px;
+}
+
+.bhc-map-container {
+    background-color: #b6623c;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.bhc-map-container > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.bhc-map-container > p {
+    color: grey;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Zoom button styles */
+.zoom-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.zoom-level-button {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid var(--green);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.zoom-level-button:hover {
+    background-color: var(--green);
+    color: var(--orange);
+    cursor: pointer;
+}
+
+/* Contributor styles */
+.contributor-cardlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.contributor-profile {
+    text-align: center;
+}
+
+.contributor-profile-image-container > img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.contributor-profile-name > p {
+    color: grey;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.contributor-profile-name > .profile-name {
+    color: white;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    .bhc-map-container {
+        margin: 10px 0;
+    }
+
+    .contributor-profile-image-container > img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .bhc-map-container {
+        margin: 5px 0;
+    }
+
+    .contributor-profile-image-container > img {
+        width: 80px;
+        height: 80px;
+    }
+}

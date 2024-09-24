@@ -1,0 +1,107 @@
+.bhc-map{
+    margin: 8em  0;
+}
+.bhc-map-heading{
+    text-align: center;
+    color: #1900ff;
+}
+.bhc-map-container {
+    background: #b6623c;
+    padding: 0;
+    margin: 1em;
+    overflow: auto;
+    aspect-ratio: 10800/6930;
+    overflowX: 'auto';
+
+
+    /* GPU-accelerated transform and will-change properties */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    transform: transale3d(0,0,0);
+    /* will-change: transform; */
+}
+.bhc-map-container > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 10800/6900;
+    object-fit: cover;
+    cursor: grab;
+    background-color: #b6623c;
+
+    transition: transform 0.3s ease-out;
+
+    /* GPU-accelerated transform and will-change properties */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    transform: transale3d(0,0,0);
+    /* will-change: transform; */
+}
+
+@keyframes fade-in {
+    from{
+       scale: 0;
+    }
+    to{
+        scale: 1;
+    }
+}
+.zoom-button-container{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin: 1em 0 1em 0;
+}
+.zoom-level-button {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 2px solid var(--green);
+}
+.zoom-level-button:hover{
+    background-color: var(--green);
+    color: var(--orange);
+    cursor: pointer;
+}
+.bhc-map > p{
+    font-weight: bold;
+    text-align: center;
+    color: grey;
+}
+
+@media only screen and (max-width: 500px) {
+    .bhc-map-container{
+        margin: 0.1em;
+    }
+    .bhc-map > p{
+        margin-top: 0.5em;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-align: center;
+        color: grey;
+    }
+}
+
+.bhc-map-container {
+    width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide scrollbar */
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
+
+.map-image {
+    width: 100%;
+    scroll-snap-align: start;
+}
+
+/* Optional: Show scrollbar on hover */
+.bhc-map-container:hover {
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+}

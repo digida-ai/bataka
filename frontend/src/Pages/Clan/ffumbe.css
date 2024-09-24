@@ -1,0 +1,124 @@
+.ffumbe-clan-container {
+    margin-top: 3em;
+}
+
+.ffumbe-clan-container > h1 {
+    color: #FF9800;
+    text-align: center;
+}
+.ffumbe-clan-about{
+    color: white;
+    margin: 2em;
+}
+.ffumbe-clan-about > div > h4 {
+    color: #FF9800;
+    font-weight: bold;
+    margin: 1em 0 0.3em 0;
+}
+
+
+.ffumbe-clan-about > div > ul {
+    margin: 1em 0 2em 2em;
+    list-style: disc;
+}
+
+.ffumbe-clan-about > .Clan-family > ul {
+    margin: 1em 0 2em -1em;
+}
+.Clan-family  li {
+    list-style-type: none;
+    margin-left: 0.75em;
+}
+.Clan-family  summary {
+    margin-top: 0.4em;
+}
+.ffumbe-clan-table-container {
+    margin: 2em;
+    color: white;
+    /*overflow: hidden;*/
+}
+.clan-point{
+    margin: 0.2em 0 0 1.2em;
+}
+
+#clan-point-li{
+    color: var(--green);
+    list-style-type: disc;
+}
+
+@media only screen and (min-width: 365px) {
+    .Clan-family  li {
+        margin-left: 1em;
+    }
+}
+
+.ffumbe-clan-table-container > .table-caption {
+    color: grey;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3em;
+}
+
+.ffumbe-clan-table {
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 1em;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.ffumbe-clan-table th,
+.ffumbe-clan-table td {
+    padding: 10px 8px;
+    border-right: 1px solid #dddddd;
+    box-sizing: border-box;
+}
+
+.ffumbe-clan-table > thead > tr {
+    background-color: #B80000;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.ffumbe-clan-table thead th:last-of-type,
+.ffumbe-clan-table tbody td:last-of-type {
+    border-right: 0;
+}
+
+.ffumbe-clan-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.ffumbe-clan-table tbody tr:last-of-type {
+    border-bottom: 2px solid #B80000;
+}
+
+.table-caption {
+    margin-top: 2em;
+}
+
+.ffumbe-clan-table-responsive {
+    overflow-x: auto;
+}
+
+@media only screen and (max-width: 500px) {
+    .ffumbe-clan-about{
+        margin: 1em;
+    }
+
+    .ffumbe-clan-table-container {
+        margin: 10px;
+    }
+
+    .ffumbe-clan-table th,
+    .ffumbe-clan-table td {
+        padding: 10px 5px;
+    }
+
+    .ffumbe-clan-table {
+        font-size: 0.8em;
+    }
+}

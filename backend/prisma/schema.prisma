@@ -1,0 +1,105 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./bataka.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Kika {
+  id          Int       @id @default(autoincrement())
+  name        String
+  headTitle    String
+  description String
+  history     String
+  traditions  String
+  lastUpdated DateTime  @default(now())
+  updatedBy   User      @relation("KikaUpdatedBy", fields: [updatedById], references: [id])
+  updatedById Int
+  editors     User[]    @relation("KikaEditors")
+  moderators  User[]    @relation("KikaModerators")
+  mituba      Mutuba[]
+}
+
+model Mutuba {
+  id          Int       @id @default(autoincrement())
+  name        String
+  headTitle    String
+  kika        Kika      @relation(fields: [kikaId], references: [id])
+  kikaId      Int
+  editors     User[]    @relation("MutubaEditors")
+  moderators  User[]    @relation("MutubaModerators")
+  masiga      Ssiga[]
+}
+
+model Ssiga {
+  id          Int       @id @default(autoincrement())
+  name        String
+  headTitle    String
+  mutuba      Mutuba    @relation(fields: [mutubaId], references: [id])
+  mutubaId    Int
+  editors     User[]    @relation("SsigaEditors")
+  moderators  User[]    @relation("SsigaModerators")
+  nnyiriri    Lunyiriri[]
+}
+
+model Lunyiriri {
+  id          Int       @id @default(autoincrement())
+  name        String
+  headTitle    String
+  ssiga       Ssiga     @relation(fields: [ssigaId], references: [id])
+  ssigaId     Int
+  editors     User[]    @relation("LunyiririEditors")
+  moderators  User[]    @relation("LunyiririModerators")
+  mpya        Luggya[]
+}
+
+model Luggya {
+  id          Int       @id @default(autoincrement())
+  name        String
+  headTitle    String
+  lunyiriri   Lunyiriri @relation(fields: [lunyiririId], references: [id])
+  lunyiririId Int
+  editors     User[]    @relation("LuggyaEditors")
+  moderators  User[]    @relation("LuggyaModerators")
+  mayumba     Enju[]
+}
+
+model Enju {
+  id          Int       @id @default(autoincrement())
+  name        String
+  headTitle    String
+  luggya      Luggya    @relation(fields: [luggyaId], references: [id])
+  luggyaId    Int
+  editors     User[]    @relation("EnjuEditors")
+  moderators  User[]    @relation("EnjuModerators")
+}
+
+model User {
+  id              Int    @id @default(autoincrement())
+  username        String @unique
+  password        String
+  role            Role   @default(USER)
+  
+  kikaUpdated     Kika[] @relation("KikaUpdatedBy")
+  kikaEdited      Kika[] @relation("KikaEditors")
+  kikaModerated   Kika[] @relation("KikaModerators")
+  
+  mutubaEdited    Mutuba[] @relation("MutubaEditors")
+  mutubaModerated Mutuba[] @relation("MutubaModerators")
+  
+  ssigaEdited     Ssiga[] @relation("SsigaEditors")
+  ssigaModerated  Ssiga[] @relation("SsigaModerators")
+  
+  lunyiririEdited Lunyiriri[] @relation("LunyiririEditors")
+  lunyiririModerated Lunyiriri[] @relation("LunyiririModerators")
+  
+  luggyaEdited    Luggya[] @relation("LuggyaEditors")
+  luggyaModerated Luggya[] @relation("LuggyaModerators")
+  
+  enjuEdited      Enju[] @relation("EnjuEditors")
+  enjuModerated   Enju[] @relation("EnjuModerators")
+}
+
+

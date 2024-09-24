@@ -1,0 +1,13 @@
+.mamba-clan-container{
+    margin-top: 20em;
+}
+
+.mamba-clan-container > div > p{
+    color: grey;
+    text-align: center;
+}
+
+.mamba-clan-container > div > p > a {
+    color: #FF9800;
+}
+

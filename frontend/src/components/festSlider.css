@@ -1,0 +1,81 @@
+.festival-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.festival-slider h1 {
+    text-align: center;
+    color: #333;
+}
+
+.festival-slider-info {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.festival-card {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.festival-card:hover {
+    transform: scale(1.02);
+}
+
+.festival-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.festival-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.festival-date {
+    font-style: italic;
+    color: #666;
+}
+
+.festival-description {
+    color: #444;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 3;
+    border-radius: 50%;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .festival-slider {
+        padding: 10px;
+    }
+}

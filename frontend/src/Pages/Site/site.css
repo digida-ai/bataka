@@ -1,0 +1,91 @@
+.site-container{
+}
+
+.site-banner > img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200/468;
+    object-fit: cover;
+    margin-bottom: 1em;
+
+    /* Blur Effect */
+    -webkit-mask-image: linear-gradient(to bottom, #000000 50%, rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to bottom, #000000 50%, rgba(0, 0, 0, 0));
+}
+
+.siteontainer > .site-description{
+    color: white;
+}
+
+.site-container > .site-description > .yatra-list{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 0 1em 0 1em;
+    gap: 1em;
+}
+
+.site-container > .site-description > .yatra-list > div > h3{
+    margin-top: 2em;
+    color: var(--green);
+}
+
+.site-container > .site-description > .yatra-list > div > ul > li {
+    margin-left: 3em;
+    /*border: 1px solid red;*/
+}
+
+.site-container > .site-description > .yatra-list > div > ul > li > span {
+    font-weight: bold;
+}
+
+.site-description > dl > dt {
+    margin-top: 2em;
+}
+
+.site-description > dl > dd {
+    margin-left: 2em;
+}
+
+ /* Title */
+
+.explore-bhc-title{
+    text-align: center;
+    color: #FF9800;
+    font-size: 40px;
+    margin-top: 2em;
+    margin-bottom: 30px;
+}
+@media only screen and (max-width: 800px) {
+    .explore-bhc-title{
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .explore-bhc-title{
+        font-size: 25px;
+    }
+}
+
+
+ /* Card */
+.site-container > .site-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    gap: 1em;
+    margin: 0 1em 0 1em;
+}
+@media only screen and (max-width: 450px) {
+    .site-container > .site-card-container{
+        margin: 0 2px 0 2px;
+        gap: 3px;
+    }
+}
+.site-district-title {
+    color: var(--green);
+    font-weight: bold;
+    text-align: center;
+    margin: 3em 0 1.5em 0;
+}
