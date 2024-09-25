@@ -1,36 +1,73 @@
-import { verify } from 'jsonwebtoken';
+ import jwt from 'jsonwebtoken';
 
-const authenticateJWT = (req, res, next) => {
-  const authHeader = req.headers.authorization;
+ export const verify = jwt.verify;
 
-  if (authHeader) {
-    const token = authHeader.split(' ')[1];
+ export const generateToken = (user) => {
+   return jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, {
+     expiresIn: '1h',
+   });
+ };
+ export const verifyToken = (token) => {
+   return jwt.verify(token, process.env.JWT_SECRET);
+ };
 
-    verify(token, process.env.JWT_SECRET, (err, user) => {
-      if (err) {
-        return res.sendStatus(403);
+   
+   export const authenticateToken = (req, res, next) => {
+     const token = req.headers.authorization;
+     if (!token) {
+       return res.status(401).json({ message: 'Unauthorized' });
+     }
+     try {
+       const decoded = verifyToken(token);
+       req.user = decoded;
+       next();
+     } catch (err) {
+       return res.status(401).json({ message: 'Unauthorized' });
+     }
+   };
+   export const authenticateAdmin = (req, res, next) => {
+     const token = req.headers.authorization;
+     if (!token) {
+       return res.status(401).json({ message: 'Unauthorized' });
+     }
+     try {
+       const decoded = verifyToken(token);
+       req.user = decoded;
+       next();
+       if (req.user.role !== 'admin') {
+         return res.status(403).json({ message: 'Forbidden' });
+       }
+       next();       
       }
+       catch (err) {
+       return res.status(401).json({ message: 'Unauthorized' });
+     }
+   }
 
-      req.user = user;
-      next();
-    });
-  } else {
-    res.sendStatus(401);
-  }
-};
-
-const authorizeRole = (roles) => {
-  return (req, res, next) => {
-    if (!req.user) {
-      return res.sendStatus(401);
-    }
-
-    if (roles.includes(req.user.role)) {
-      next();
-    } else {
-      res.sendStatus(403);
-    }
-  };
-};
-
-export default { authenticateJWT, authorizeRole };
+   export const authenticateUser = (req, res, next) => {
+     const token = req.headers.authorization;
+     if (!token) {
+       return res.status(401).json({ message: 'Unauthorized' });
+     }
+     try {
+       const decoded = verifyToken(token);
+       req.user = decoded;
+       next();
+       if (req.user.role !== 'user') {
+         return res.status(403).json({ message: 'Forbidden' });
+       }
+       next();
+      }
+       catch (err) {
+       return res.status(401).json({ message: 'Unauthorized' });
+     }
+   }
+   
+   export const authorizeRole = (role) => {
+     return (req, res, next) => {
+       if (req.user.role !== role) {
+         return res.status(403).json({ message: 'Forbidden' });
+       }
+       next();
+     };
+   };

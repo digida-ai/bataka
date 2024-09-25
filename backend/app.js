@@ -1,5 +1,5 @@
 import express from 'express';
-import kikaRoutes from './routes/bika.js';
+import kikaRoutes from './routes/kikas.js';
 import mutubaRoutes from './routes/mituba.js';
 import ssigaRoutes from './routes/masiga.js';
 import lunyiririRoutes from './routes/nnyiriri.js';

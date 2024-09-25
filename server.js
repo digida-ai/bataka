@@ -1,7 +1,8 @@
+import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { PrismaClient } from '@prisma/client';
-import { use, get, listen } from './app.js';
+import { use, get, listen } from './backend/app.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,6 +10,8 @@ const __dirname = path.dirname(__filename);
 const prisma = new PrismaClient();
 const port = process.env.PORT || 3000;
 
+use(express.json());
+use(express.urlencoded({ extended: true }));
 
 
 // Serve static files from the React app
